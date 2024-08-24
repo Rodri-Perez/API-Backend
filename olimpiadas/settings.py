@@ -25,7 +25,11 @@ SECRET_KEY = 'django-insecure-byau*v%nr6@%y(g*2*_2309ha6txhkgyx)#*u@=jsaog*w1)@_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+
+    "olimpiadas-backend-production.up.railway.app"
+
+]
 
 
 # Application definition
