@@ -32,6 +32,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
 
+    "olimpiadas-frontend.vercel.app",
     "olimpiadas-backend-production.up.railway.app"
 
 ]
@@ -48,6 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'corsheaders',
+    'coreapi',
     "api"
 ]
 
@@ -143,5 +145,11 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-CSRF_TRUSTED_ORIGINS = ['http://*',
+CSRF_TRUSTED_ORIGINS = ['https://*',
+                        'https://olimpiadas-frontend.vercel.app/',
                         'https://olimpiadas-backend-production.up.railway.app']
+
+
+REST_FRAMEWORK = {
+    "DEFAULT_SCHEMA_CLASS": "rest_framework.schemas.coreapi.AutoSchema",
+}

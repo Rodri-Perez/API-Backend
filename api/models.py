@@ -7,8 +7,11 @@ class Producto(models.Model):
         primary_key=True, editable=False),
     cod = models.CharField(max_length=255)
     categoria = models.CharField(max_length=255)
-    talle_peso = models.CharField(max_length=255)
+    talle_peso = models.CharField(max_length=50)
     nombre = models.CharField(max_length=255)
     descripcion = models.CharField(max_length=255)
     stock = models.PositiveIntegerField()
     precio = models.PositiveIntegerField()
+
+    def __str__(self):
+        return self.nombre
