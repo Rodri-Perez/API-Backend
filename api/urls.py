@@ -6,5 +6,9 @@ router = routers.DefaultRouter()
 router.register(r'productos', views.ProductoViewSet)
 
 urlpatterns = [
-    path('', include(router.urls))
+    path('', include(router.urls)),
+    path('token/', views.CreateTokenView.as_view)
+
 ]
+
+

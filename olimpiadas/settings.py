@@ -33,6 +33,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
 
     "olimpiadas-frontend.vercel.app",
+    "127.0.0.1",
     "olimpiadas-backend-production.up.railway.app"
 
 ]
@@ -146,6 +147,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 CSRF_TRUSTED_ORIGINS = ['https://*',
+                        'http://127.0.0.1:8000',
                         'https://olimpiadas-frontend.vercel.app/',
                         'https://olimpiadas-backend-production.up.railway.app']
 
