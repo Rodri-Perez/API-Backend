@@ -32,9 +32,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
 
-    "olimpiadas-frontend.vercel.app",
-    "127.0.0.1",
-    "olimpiadas-backend-production.up.railway.app"
+    "localhost"
 
 ]
 
@@ -48,10 +46,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
     'rest_framework',
     'corsheaders',
-    'coreapi',
-    "api"
+    'coreapi',   
+    'api'        
 ]
 
 MIDDLEWARE = [
@@ -64,6 +63,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'social.apps.django_app.middleware.SocialAuthExceptionMiddleware'
 ]
 
 ROOT_URLCONF = 'olimpiadas.urls'
@@ -91,9 +91,11 @@ WSGI_APPLICATION = 'olimpiadas.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": "mydatabase",
+    }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -146,12 +148,19 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-CSRF_TRUSTED_ORIGINS = ['https://*',
-                        'http://127.0.0.1:8000',
-                        'https://olimpiadas-frontend.vercel.app/',
-                        'https://olimpiadas-backend-production.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['https://*', 'http://*',]
 
 
 REST_FRAMEWORK = {
     "DEFAULT_SCHEMA_CLASS": "rest_framework.schemas.coreapi.AutoSchema",
 }
+
+PASSWORD_HASHERS = [
+   'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
+    'django.contrib.auth.hashers.BCryptPasswordHasher',
+    'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+    'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
+    'django.contrib.auth.hashers.SHA1PasswordHasher',
+    'django.contrib.auth.hashers.MD5PasswordHasher',
+    'django.contrib.auth.hashers.CryptPasswordHasher',
+]
