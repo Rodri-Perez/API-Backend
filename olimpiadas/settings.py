@@ -32,6 +32,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     "api-frontend-azure.vercel.app",
+    "api-backend-production-8a94.up.railway.app",
     "localhost",
 
 ]
@@ -145,7 +146,8 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-CSRF_TRUSTED_ORIGINS = ['https://*', 'http://*', 'https://api-frontend-azure.vercel.app/', 'https://api-backend-production-8a94.up.railway.app/' ]
+CSRF_TRUSTED_ORIGINS = ['https://*', 'http://*', 'https://api-frontend-azure.vercel.app/',
+                        'https://api-backend-production-8a94.up.railway.app/']
 
 
 REST_FRAMEWORK = {
